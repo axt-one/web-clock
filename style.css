@@ -25,7 +25,7 @@ p {
 
 }
 .clock:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 300ms 0s ease;
 }
 
@@ -64,17 +64,15 @@ p {
 }
 .hour {
     background: var(--fg-color);
-    border-radius: 100% 5% 60% 10% / 60% 5% 100% 10%;
-    transform-origin: 5% 95%;
-    transform: translate(45%, -38%) rotate(135deg) skew(-20deg, -20deg) scale(0.15);
+    border-radius: 100% 5% 60% 0% / 60% 5% 100% 0%;
+    transform: translate(0, 20%) rotate(135deg) skew(-20deg, -20deg) scale(0.15);
     /* z-index: 5; */
 }
 
 .min {
     background: var(--fg-color);
-    border-radius: 100% 5% 100% 10% / 100% 5% 100% 10%;
-    transform-origin: 5% 95%;
-    transform: translate(45%, -38%) rotate(-45deg) skew(-20deg, -20deg) scale(0.23);
+    border-radius: 80% 5% 100% 0% / 100% 5% 80% 0%;
+    transform: translate(0, -13%) rotate(-45deg) skew(-20deg, -20deg) scale(0.23);
     /* z-index: 6; */
 }
 

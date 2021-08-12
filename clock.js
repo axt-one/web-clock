@@ -17,8 +17,8 @@ function update(h, m, s) {
 }
 
 function cb() {
+    var time = new Date();
     if (flag == 0) {
-        var time = new Date();
         update(time.getHours(), time.getMinutes(), time.getSeconds());
     } else if (flag == 1) {
         $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
@@ -44,17 +44,30 @@ function displayTime() {
 }
 
 function init() {
-    $(".clock").hover(
-        function() {
-            flag = 1;
-            clearTimeout(timeoutId);
-            cb();
-        },
-        function() {
-            flag = -1;
-            displayTime();
+    // $(".clock").hover(
+    //     function() {
+    //         flag = 1;
+    //         clearTimeout(timeoutId);
+    //         cb();
+    //     },
+    //     function() {
+    //         flag = -1;
+    //         displayTime();
+    //     }
+    // );
+    $(".clock").on('click',
+        function(){
+            if(flag != 1){
+                flag = 1;
+                clearTimeout(timeoutId)
+                cb();
+            }
+            else{
+                flag = -1;
+                displayTime();
+            }
         }
-    );
+    )
     $("#min").css("transform-origin", "50% 57%");
     $("#hour").css("transform-origin", "50% 57%");
     $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
