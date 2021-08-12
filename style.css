@@ -18,7 +18,7 @@ p {
 .clock {
     width: 200px;
     height: 200px;
-    margin:0 auto;
+    margin: 0 auto;
     margin-top: 100px;
     position: relative;
     transition: transform 300ms 0s ease;
@@ -40,7 +40,7 @@ p {
 .sec {
     background: var(--fg-color);
     border-radius: 100% 0% 100% 0%;
-    transform: rotate(1125deg) skew(11deg, 11deg);
+    transform: rotate(45deg) skew(11deg, 11deg);
 }
 
 .im1 {
@@ -60,19 +60,21 @@ p {
 }
 .hour {
     background: var(--fg-color);
-    border-radius : 100% 5% 60% 10% / 60% 5% 100% 10%;
+    border-radius: 100% 5% 60% 10% / 60% 5% 100% 10%;
     transform-origin: 5% 95%;
-    transform: translate(45%, -38%) rotate(-585deg) skew(-20deg, -20deg) scale(15%);
+    transform: translate(45%, -38%) rotate(135deg) skew(-20deg, -20deg)
+      scale(15%);
 }
 
 .min {
     background: var(--fg-color);
-    border-radius : 100% 5% 100% 10% / 100% 5% 100% 10%;
+    border-radius: 100% 5% 100% 10% / 100% 5% 100% 10%;
     transform-origin: 5% 95%;
-    transform: translate(45%, -38%) rotate(-1485deg) skew(-20deg, -20deg) scale(23%);
+    transform: translate(45%, -38%) rotate(-45deg) skew(-20deg, -20deg)
+      scale(23%);
 }
-
-.sample1{
+  
+.sample1 {
     background: violet;
     mix-blend-mode: multiply;
     width: 200px;
@@ -80,18 +82,18 @@ p {
     position: relative;
     margin-left: 100px;
 }
-.sample2{
+.sample2 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background:darkgreen;
+    background: darkgreen;
     mix-blend-mode: multiply;
     width: 100%;
     height: 100%;
     transform-origin: 0% 100%;
     transform: translate(10%, 10%) rotate(300deg) skew(-10deg, -10deg) scale(50%);
 }
-.sample3{
+.sample3 {
     position: absolute;
     inset: 0;
     margin: auto;
@@ -102,7 +104,7 @@ p {
     transform-origin: 0% 100%;
     transform: translate(10%, 10%) skew(-10deg, -10deg) scale(50%);
 }
-.sample4{
+.sample4 {
     position: absolute;
     inset: 0;
     margin: auto;

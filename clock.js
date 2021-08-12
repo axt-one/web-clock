@@ -8,53 +8,57 @@ function update(h, m, s) {
     var hour = h * 30 + min / 12;
     var r = 34;
     var a = 7;
-    var b = -a * Math.cos(min * Math.PI / 180);
-    var l = -b + Math.sqrt(b*b - (a*a - r*r));
-    l = l / 0.95 / ((1+Math.tan(20/180*Math.PI))*Math.SQRT2)
-    $('.sec').css({'transform': `rotate(${sec - 45}deg) skew(11deg, 11deg)`});
-    $('.hour').css({'transform': `translate(45%, -38%) rotate(${hour - 45}deg) skew(-20deg, -20deg) scale(15%)`});
-    $('.min').css({'transform': `translate(45%, -38%) rotate(${min - 45}deg) skew(-20deg, -20deg) scale(${l}%)`});
+    var b = -a * Math.cos((min * Math.PI) / 180);
+    var l = -b + Math.sqrt(b * b - (a * a - r * r));
+    l = l / 0.95 / ((1 + Math.tan((20 / 180) * Math.PI)) * Math.SQRT2);
+    $("#sec").css({ transform: `rotate(${sec - 45}deg)` });
+    $("#hour").css({ transform: `rotate(${hour - 180}deg)` });
+    $("#min").css({ transform: `rotate(${min}deg) scale(${(l / 23) * 100}%)` });
 }
 
 function cb() {
-    if(flag == 0){
+    if (flag == 0) {
         var time = new Date();
         update(time.getHours(), time.getMinutes(), time.getSeconds());
-    }
-    else if(flag == 1){
-        $('.sub').css('transition', `transform ${animateTime}ms 0s ease`);
-        $('.sec').css('transform', 'rotate(1125deg) skew(11deg, 11deg)');
-        $('.min').css('transform', 'translate(45%, -38%) rotate(-1485deg) skew(-20deg, -20deg) scale(23%)');
-        $('.hour').css('transform', 'translate(45%, -38%) rotate(-585deg) skew(-20deg, -20deg) scale(15%)');
+    } else if (flag == 1) {
+        $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
+        $("#sec").css("transform", "rotate(1080deg)");
+        $("#min").css("transform", "rotate(-1440deg)");
+        $("#hour").css("transform", "rotate(-720deg)");
     }
 }
 
-function displayTime(){
+function displayTime() {
     var time = new Date();
-    update(time.getHours(), time.getMinutes(), time.getSeconds() + animateTime/1000);
-    timeoutId = setTimeout(function(){
+    update(
+        time.getHours(),
+        time.getMinutes(),
+        time.getSeconds() + animateTime / 1000
+    );
+    timeoutId = setTimeout(function() {
         flag = 0;
         cb();
-        $('.sub').css('transition', '');
+        $(".sub").css("transition", "");
     }, animateTime);
 }
 
-function init(){
-    $('.clock').hover(
-        function(){
+function init() {
+    $(".clock").hover(
+        function() {
             flag = 1;
             clearTimeout(timeoutId);
             cb();
         },
-        function(){
+        function() {
             flag = -1;
             displayTime();
         }
     );
-    $('.sub').css('transition', `transform ${animateTime}ms 0s ease`);
+    $("#min").css("transform-origin", "50% 57%");
+    $("#hour").css("transform-origin", "50% 57%");
+    $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
     displayTime();
-    setInterval('cb()', 1000);
+    setInterval("cb()", 1000);
 }
 
-setTimeout('init()', 1000);
-
+setTimeout("init()", 1000);
