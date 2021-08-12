@@ -11,9 +11,9 @@ function update(h, m, s) {
     var b = -a * Math.cos((min * Math.PI) / 180);
     var l = -b + Math.sqrt(b * b - (a * a - r * r));
     l = l / 0.95 / ((1 + Math.tan((20 / 180) * Math.PI)) * Math.SQRT2);
-    $("#sec").css({ transform: `rotate(${sec - 45}deg)` });
+    $("#sec").css({ transform: `rotate(${sec - 90}deg)` });
     $("#hour").css({ transform: `rotate(${hour - 180}deg)` });
-    $("#min").css({ transform: `rotate(${min}deg) scale(${(l / 23) * 100}%)` });
+    $("#min").css({ transform: `rotate(${min}deg) scale(${l / 23})` });
 }
 
 function cb() {
@@ -23,9 +23,10 @@ function cb() {
     } else if (flag == 1) {
         $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
         $("#sec").css("transform", "rotate(1080deg)");
-        $("#min").css("transform", "rotate(-1440deg)");
+        $("#min").css("transform", "rotate(-1080deg)");
         $("#hour").css("transform", "rotate(-720deg)");
     }
+    $("#RealtimeClockArea").html(`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`)
 }
 
 function displayTime() {
