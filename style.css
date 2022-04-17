@@ -12,6 +12,7 @@ p {
     background: #404040;
     color: aliceblue;
     width: 100%;
+    height: auto;
     text-align: center;
 }
 
