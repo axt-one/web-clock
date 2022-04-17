@@ -1,0 +1,14 @@
+{
+    "name": "ClockPopup",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Clock Popup",
+    "permissions": [
+    ],
+    "icons": {
+    },
+    "action": {
+        "default_title": "Clock",
+        "default_popup": "index.html"
+    }
+}

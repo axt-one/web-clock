@@ -1,0 +1,16 @@
+body {
+    width: 400px;
+    height: 250px;
+}
+
+.clock {
+    position: absolute;
+    width: 60vmin;
+    height: 60vmin;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
