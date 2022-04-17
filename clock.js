@@ -26,7 +26,10 @@ function cb() {
         $("#min").css("transform", "rotate(-1080deg)");
         $("#hour").css("transform", "rotate(-720deg)");
     }
-    $("#RealtimeClockArea").html(`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`)
+    h = time.getHours().toString().padStart(2, "0");
+    m = time.getMinutes().toString().padStart(2, "0");
+    s = time.getSeconds().toString().padStart(2, "0");
+    $("#RealtimeClockArea").html(`${h}:${m}:${s}`);
 }
 
 function displayTime() {
@@ -44,35 +47,35 @@ function displayTime() {
 }
 
 function init() {
-    // $(".clock").hover(
-    //     function() {
-    //         flag = 1;
-    //         clearTimeout(timeoutId);
-    //         cb();
-    //     },
-    //     function() {
-    //         flag = -1;
-    //         displayTime();
-    //     }
-    // );
-    $(".clock").on('click',
-        function(){
-            if(flag != 1){
-                flag = 1;
-                clearTimeout(timeoutId)
-                cb();
-            }
-            else{
-                flag = -1;
-                displayTime();
-            }
+    $(".clock").hover(
+        function() {
+            flag = 1;
+            clearTimeout(timeoutId);
+            cb();
+        },
+        function() {
+            flag = -1;
+            displayTime();
         }
-    )
+    );
+    // $(".clock").on('click',
+    //     function(){
+    //         if(flag != 1){
+    //             flag = 1;
+    //             clearTimeout(timeoutId)
+    //             cb();
+    //         }
+    //         else{
+    //             flag = -1;
+    //             displayTime();
+    //         }
+    //     }
+    // )
     $("#min").css("transform-origin", "50% 57%");
     $("#hour").css("transform-origin", "50% 57%");
     $(".sub").css("transition", `transform ${animateTime}ms 0s ease`);
     displayTime();
-    setInterval("cb()", 1000);
+    setInterval(cb, 1000);
 }
 
-setTimeout("init()", 1000);
+setTimeout(init, 1000);
